@@ -24,15 +24,20 @@
                         <label for="inputFirstname">First Name</label>
                         <input th:field="*{firstname}" type="text" class="form-control" id="inputFirstname"
                                placeholder="First Name">
+                        <div th:if="${#fields.hasErrors('firstname')}">
+                            <ol>
+                                <li th:each="error : ${#fields.errors('firstname')}" th:text="${error}"></li>
+                            </ol>
+                        </div>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputLastname">Last Name</label>
                         <input th:field="*{lastname}" type="text" class="form-control" id="inputLastname"
-                               placeholder="Last Name">
+                               placeholder="Last Name" >
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputBirthday">Birthday</label>
-                        <input th:field="*{birthday}" type="date" class="form-control" id="inputBirthday">
+                        <input th:field="*{birthday}" type="date" class="form-control" id="inputBirthday" >
                     </div>
                 </div>
                 <form>
@@ -40,38 +45,38 @@
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Email</label>
                             <input th:field="*{email}" type="email" class="form-control" id="inputEmail4"
-                                   placeholder="Email">
+                                   placeholder="Email" >
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPassword4">Password</label>
                             <input th:field="*{password}" type="password" class="form-control" id="inputPassword4"
-                                   placeholder="Password">
+                                   placeholder="Password" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress">Address</label>
                         <input th:field="*{address}" type="text" class="form-control" id="inputAddress"
-                               placeholder="1234 Main St">
+                               placeholder="1234 Main St" >
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Address 2</label>
                         <input th:field="*{address2}" type="text" class="form-control" id="inputAddress2"
-                               placeholder="Apartment, studio, or floor">
+                               placeholder="Apartment, studio, or floor" >
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputCity">City</label>
-                            <input th:field="*{city}" type="text" class="form-control" id="inputCity">
+                            <input th:field="*{city}" type="text" class="form-control" id="inputCity" >
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputState">State</label>
-                            <select th:field="*{state}" id="inputState" class="form-control">
+                            <select th:field="*{state}" id="inputState" class="form-control" >
                                 <option th:each="state : ${states}"  th:text="${state}" th:value="${state}"></option>
                             </select>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputZip">Zip</label>
-                            <input th:field="*{zip}" type="text" class="form-control" id="inputZip">
+                            <input th:field="*{zip}" type="text" class="form-control" id="inputZip" >
                         </div>
                     </div>
                     <button type="submit" class="btn btn-danger">Register</button>
